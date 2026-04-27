@@ -29,7 +29,10 @@
 }
 
 /* Header, Sidebar, and Panels */
-.skinHeader-withBackground, .navMenu, .itemSelectionPanel, .visualCardBox {
+.skinHeader-withBackground, 
+.navMenu, 
+.itemSelectionPanel, 
+.visualCardBox {
     background-color: var(--pine-panel) !important;
 }
 
@@ -52,11 +55,14 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
 }
 
 /* Navigation & Interaction */
-.button-link, .navMenuButton-selected, .emby-tab-button-active {
+.button-link, 
+.navMenuButton-selected, 
+.emby-tab-button-active {
     color: var(--pine-light) !important;
 }
 
-.cardBox:hover, .listItem:hover {
+.cardBox:hover, 
+.listItem:hover {
     background: rgba(45, 90, 39, 0.2) !important;
 }
 
@@ -66,14 +72,15 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
 }
 
 /* Rounded corners for posters */
-.cardContent, .cardImage, .cardImageContainer {
+.cardContent, 
+.cardImage, 
+.cardImageContainer {
     border-radius: 8px !important;
 }
 
 /* --- THE "TOP BAR" TRANSITION --- */
 
 /* 1. HIDE THE TILES (My Media section) */
-/* We target section0 and any item container that holds library tiles */
 div[data-role="section"][class*="section0"], 
 #indexPage .section0,
 .viewItemsContainer > .section0,
@@ -81,8 +88,7 @@ div[data-role="section"][class*="section0"],
     display: none !important;
 }
 
-/* 2. STYLE THE TOP TABS (The "New" Navigation) */
-/* This makes the Home/Movies/TV tabs at the top look like the primary menu */
+/* 2. STYLE THE TOP TABS */
 .headerTabs {
     background-color: var(--pine-panel) !important;
     padding-bottom: 5px;
@@ -97,14 +103,29 @@ div[data-role="section"][class*="section0"],
     font-size: 0.9em;
 }
 
+/* ACTIVE TAB */
 .emby-tab-button-active {
     color: var(--pine-light) !important;
     border-bottom: 3px solid var(--pine-accent) !important;
 }
 
+/* HOVER */
 .emby-tab-button:hover {
     color: var(--pine-light) !important;
     background: rgba(45, 90, 39, 0.15);
+}
+
+/* --- REMOVE ICONS FROM TOP TABS (Movies, TV, etc.) --- */
+.headerTabs .emby-tab-button i,
+.headerTabs .emby-tab-button .material-icons,
+.headerTabs .emby-tab-button .md-icon,
+.headerTabs .emby-tab-button:before {
+    display: none !important;
+}
+
+/* Optional extra safety */
+.headerTabs .emby-tab-button {
+    background-image: none !important;
 }
 
 /* --- SIDEBAR & LOGIN POLISH --- */
@@ -118,7 +139,7 @@ div[data-role="section"][class*="section0"],
     color: white !important;
 }
 
-/* Ensures the login button matches the pine accent */
+/* Login button styling */
 #loginPage .emby-button {
     background-color: var(--pine-accent) !important;
     border-radius: 8px;
