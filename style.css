@@ -76,11 +76,6 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
 
 /* Transform Library Cards into Centered Buttons aligned with grid */
 #indexPage .section0 .card {
-    /* Matches width to posters in the grid */
-    width: 12vw !important; 
-    min-width: 140px !important;
-    max-width: 220px !important;
-
     background-color: var(--pine-panel) !important;
     border: 1px solid var(--pine-accent) !important;
     border-radius: 12px !important; 
@@ -88,10 +83,12 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     box-shadow: none !important;
     height: 55px !important; 
     margin-right: 12px !important;
-    overflow: visible !important; /* Allow menu to show */
-    position: relative !important; /* Enable absolute positioning of menu */
+    overflow: visible !important;
+    position: relative !important;
     display: flex !important;
     align-items: center !important;
+    width: auto !important;
+    min-width: 140px !important;
 }
 
 /* Center the text perfectly */
@@ -101,7 +98,7 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     justify-content: center !important;
     height: 100% !important;
     margin: 0 !important;
-    padding: 0 !important;
+    padding: 0 12px !important;
     flex: 1 !important;
 }
 
@@ -114,6 +111,7 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     font-weight: 700 !important;
     letter-spacing: 0.5px;
     color: var(--pine-light) !important;
+    white-space: nowrap !important;
 }
 
 /* Position three-dot menu on the right side */
@@ -131,7 +129,7 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     height: auto !important;
     flex-shrink: 0 !important;
     margin: 0 !important;
-    padding: 2px 4px !important;
+    padding: 0 !important;
 }
 
 /* Ensure menu button children are visible */
