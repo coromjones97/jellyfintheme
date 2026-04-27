@@ -1,5 +1,6 @@
 /* JELLYFIN THEME: DEEP PINE FOREST
    Style: Dark, Calm, and Streamlined
+   Server-Wide Implementation
 */
 
 :root {
@@ -21,19 +22,14 @@
     background-color: var(--pine-dark) !important;
 }
 
-/* Background Overlay for better text readability on movie backdrops */
+/* Background Overlay for movie backdrops */
 .backgroundContainer.withBackdrop {
     background-color: rgba(10, 18, 11, 0.85) !important;
     backdrop-filter: blur(10px);
 }
 
-/* Header and Side Navigation */
+/* Header, Sidebar, and Panels */
 .skinHeader-withBackground, .navMenu, .itemSelectionPanel, .visualCardBox {
-    background-color: var(--pine-panel) !important;
-}
-
-/* Header Top Bar Clean-up */
-.headerTop {
     background-color: var(--pine-panel) !important;
 }
 
@@ -74,16 +70,45 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     border-radius: 8px !important;
 }
 
-/* --- Remove "My Media" Section Completely --- */
+/* --- THE "TOP BAR" TRANSITION --- */
 
-/* This removes the entire Library tile row from the home page */
-#indexPage .section0 {
+/* 1. HIDE THE TILES (My Media section) */
+/* We target section0 and any item container that holds library tiles */
+div[data-role="section"][class*="section0"], 
+#indexPage .section0,
+.viewItemsContainer > .section0,
+#indexPage .itemsContainer > .card[data-type="CollectionFolder"] {
     display: none !important;
 }
 
-/* --- Side Navigation Polish --- */
+/* 2. STYLE THE TOP TABS (The "New" Navigation) */
+/* This makes the Home/Movies/TV tabs at the top look like the primary menu */
+.headerTabs {
+    background-color: var(--pine-panel) !important;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--pine-accent);
+}
 
-/* Make the sidebar feel like part of the theme */
+.emby-tab-button {
+    color: var(--text-main) !important;
+    font-weight: 600 !important;
+    padding: 1em 1.5em !important;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.emby-tab-button-active {
+    color: var(--pine-light) !important;
+    border-bottom: 3px solid var(--pine-accent) !important;
+}
+
+.emby-tab-button:hover {
+    color: var(--pine-light) !important;
+    background: rgba(45, 90, 39, 0.15);
+}
+
+/* --- SIDEBAR & LOGIN POLISH --- */
+
 .navMenu {
     border-right: 1px solid var(--pine-accent) !important;
 }
@@ -93,15 +118,8 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     color: white !important;
 }
 
-/* --- Top Bar (Tabs) Polish --- */
-
-/* Styling the Home/Favorites/Collections tabs at the top */
-.emby-tab-button {
-    font-weight: 600 !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.emby-tab-button-active {
-    border-bottom: 2px solid var(--pine-accent) !important;
+/* Ensures the login button matches the pine accent */
+#loginPage .emby-button {
+    background-color: var(--pine-accent) !important;
+    border-radius: 8px;
 }
