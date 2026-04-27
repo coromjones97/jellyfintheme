@@ -62,11 +62,20 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     display: none !important;
 }
 
-/* Hide library images and the three-dot menu */
+/* Aggressively hide library images, the three-dot menu, 
+   and any overlays on the library buttons 
+*/
 #indexPage .section0 .cardImageContainer, 
 #indexPage .section0 .cardPadder,
-#indexPage .section0 .cardItemMenuButton {
+#indexPage .section0 .cardItemMenuButton,
+#indexPage .section0 .cardButtons,
+#indexPage .section0 .show-focus-visible,
+#indexPage .section0 .indicator {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
 }
 
 /* Transform Library Cards into Centered Buttons aligned with grid */
@@ -83,6 +92,7 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     box-shadow: none !important;
     height: 55px !important; 
     margin-right: 12px !important;
+    overflow: hidden !important; /* Ensure nothing leaks out of the button */
 }
 
 /* Center the text perfectly */
