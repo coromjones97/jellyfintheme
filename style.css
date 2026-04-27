@@ -62,13 +62,9 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     display: none !important;
 }
 
-/* Aggressively hide library images, the three-dot menu, 
-   and any overlays on the library buttons 
-*/
+/* Hide library images and padder */
 #indexPage .section0 .cardImageContainer, 
 #indexPage .section0 .cardPadder,
-#indexPage .section0 .cardItemMenuButton,
-#indexPage .section0 .cardButtons,
 #indexPage .section0 .show-focus-visible,
 #indexPage .section0 .indicator {
     display: none !important;
@@ -78,17 +74,20 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     height: 0 !important;
 }
 
-/* Additional fallback rules for three-dot menu */
-#indexPage .section0 .cardItemMenuButton *,
-#indexPage .section0 .cardButtons * {
-    display: none !important;
-}
-
-/* Hide any button overlays */
-#indexPage .section0 .card .itemAction,
-#indexPage .section0 .card .cardOverlayButton,
-#indexPage .section0 .card [class*="menu"] {
-    display: none !important;
+/* Reposition three-dot menu to the right side, centered vertically */
+#indexPage .section0 .cardItemMenuButton,
+#indexPage .section0 .cardButtons {
+    position: absolute !important;
+    right: 8px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: auto !important;
+    height: auto !important;
 }
 
 /* Transform Library Cards into Centered Buttons aligned with grid */
@@ -105,7 +104,8 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     box-shadow: none !important;
     height: 55px !important; 
     margin-right: 12px !important;
-    overflow: hidden !important; /* Ensure nothing leaks out of the button */
+    overflow: visible !important; /* Allow menu to show */
+    position: relative !important; /* Enable absolute positioning of menu */
 }
 
 /* Center the text perfectly */
