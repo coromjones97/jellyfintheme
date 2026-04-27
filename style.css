@@ -1,4 +1,4 @@
-/* JELLYFIN THEME: DEEP PINE FOREST (GRID ALIGNED)
+/* JELLYFIN THEME: DEEP PINE FOREST
    Style: Dark, Calm, and Streamlined
 */
 
@@ -13,14 +13,17 @@
 
 /* --- Core Layout & Colors --- */
 
+/* Main Backgrounds */
 .backgroundContainer, .backdropContainer, .backgroundApp {
     background-color: var(--pine-dark) !important;
 }
 
+/* Header and Side Navigation */
 .skinHeader-withBackground, .navMenu, .itemSelectionPanel {
     background-color: var(--pine-panel) !important;
 }
 
+/* Primary Buttons and Progress Bars */
 .emby-button-primary, 
 .itemProgressBarForeground, 
 .mdl-slider-background-lower {
@@ -28,6 +31,7 @@
     color: white !important;
 }
 
+/* Global Text Colors */
 body, h1, h2, h3, h4, .primaryText, .cardText {
     color: var(--text-main) !important;
 }
@@ -37,6 +41,7 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     opacity: 0.8;
 }
 
+/* Navigation & Interaction */
 .button-link, .navMenuButton-selected, .emby-tab-button-active {
     color: var(--pine-light) !important;
 }
@@ -45,6 +50,7 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     background: rgba(45, 90, 39, 0.2) !important;
 }
 
+/* Rounded corners for posters */
 .cardContent, .cardImage, .cardImageContainer {
     border-radius: 8px !important;
 }
@@ -64,30 +70,38 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
 
 /* Transform Library Cards into Centered Buttons aligned with grid */
 #indexPage .section0 .card {
+    /* Matches width to posters in the grid */
+    width: 12vw !important; 
+    min-width: 140px !important;
+    max-width: 220px !important;
+
     background-color: var(--pine-panel) !important;
     border: 1px solid var(--pine-accent) !important;
     border-radius: 12px !important; 
     transition: all 0.2s ease-in-out;
     box-shadow: none !important;
-    height: 50px !important; /* Set a fixed height for the thin bar look */
+    height: 55px !important; /* Height adjusted for larger text */
+    margin-right: 12px !important;
 }
 
-/* Center the text vertically and horizontally */
+/* Center the text perfectly */
 #indexPage .section0 .cardBox {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     height: 100% !important;
     margin: 0 !important;
+    padding: 0 !important;
 }
 
-/* Remove default padding/margin from text to ensure perfect centering */
+/* Button Text Styling (Larger & Bolder) */
 #indexPage .section0 .cardText {
     padding: 0 !important;
     margin: 0 !important;
     text-align: center !important;
-    font-size: 1em !important;
-    font-weight: 600;
+    font-size: 1.4em !important; /* Larger title size */
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
     color: var(--pine-light) !important;
 }
 
@@ -99,6 +113,12 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
 
 #indexPage .section0 .card:hover .cardText {
     color: white !important;
+}
+
+/* Keep the row clean */
+#indexPage .section0 .itemsContainer {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
 }
 
 /* Spacing at the top of the home screen */
