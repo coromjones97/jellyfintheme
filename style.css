@@ -88,20 +88,25 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     height: 0 !important;
 }
 
-/* Transform Library Cards into Buttons matched to Poster Width */
+/* Force My Media items to match the layout width of movie posters */
 #indexPage .section0 .card {
     background-color: var(--pine-panel) !important;
     border: 1px solid var(--pine-accent) !important;
     border-radius: 12px !important; 
     transition: all 0.2s ease-in-out;
     box-shadow: none !important;
-    height: 60px !important; /* Kept height slim for button feel */
-    margin-right: 0 !important; /* Let the grid handle spacing */
+    height: 60px !important; 
     overflow: visible !important;
     position: relative !important;
     display: flex !important;
     align-items: center !important;
-    width: 100% !important; /* Fill the grid cell width */
+    /* This ensures it scales with the grid just like the posters below */
+    width: 100% !important; 
+}
+
+/* Ensure the library grid doesn't force a weird width */
+#indexPage .section0 .padded-left.padded-right.padded-top.padded-bottom {
+    padding: 0 3.3% !important; /* Matches standard Jellyfin poster row padding */
 }
 
 /* Center the text within the button */
@@ -111,8 +116,8 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     justify-content: center !important;
     height: 100% !important;
     margin: 0 !important;
-    padding: 0 8px !important;
-    flex: 1 !important;
+    padding: 0 12px !important;
+    width: 100% !important;
 }
 
 /* Button Text Styling */
@@ -120,14 +125,13 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     padding: 0 !important;
     margin: 0 !important;
     text-align: center !important;
-    font-size: 1.1em !important; /* Slightly smaller to fit poster width */
+    font-size: 1.1em !important; 
     font-weight: 700 !important;
     letter-spacing: 0.5px;
     color: var(--pine-light) !important;
     white-space: nowrap !important;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 100%;
 }
 
 /* Position three-dot menu on the right */
@@ -136,9 +140,6 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     right: 4px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
 }
 
 /* Button Hover State */
@@ -151,16 +152,8 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     color: white !important;
 }
 
-/* Maintain Grid alignment with the rest of the home page */
-#indexPage .section0 .itemsContainer {
-    flex-wrap: wrap !important; /* Allows it to follow the same grid as posters */
-    justify-content: flex-start !important;
-}
-
 /* Spacing at the top of the home screen */
 #indexPage .section0 {
     margin-top: 2em !important;
     margin-bottom: 2em !important;
-    padding-left: 3% !important; /* Adjust based on your layout padding */
-    padding-right: 3% !important;
 }
