@@ -32,6 +32,11 @@
     background-color: var(--pine-panel) !important;
 }
 
+/* Header Top Bar Clean-up */
+.headerTop {
+    background-color: var(--pine-panel) !important;
+}
+
 /* Primary Buttons and Progress Bars */
 .emby-button-primary, 
 .itemProgressBarForeground, 
@@ -69,91 +74,34 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     border-radius: 8px !important;
 }
 
-/* --- Aligned Button-Style "My Media" Section --- */
+/* --- Remove "My Media" Section Completely --- */
 
-/* Hide the "My Media" Title */
-#indexPage .section0 .sectionTitle {
+/* This removes the entire Library tile row from the home page */
+#indexPage .section0 {
     display: none !important;
 }
 
-/* Hide library images and unnecessary elements */
-#indexPage .section0 .cardImageContainer, 
-#indexPage .section0 .cardPadder,
-#indexPage .section0 .show-focus-visible,
-#indexPage .section0 .indicator {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
+/* --- Side Navigation Polish --- */
+
+/* Make the sidebar feel like part of the theme */
+.navMenu {
+    border-right: 1px solid var(--pine-accent) !important;
 }
 
-/* Force My Media items to match the layout width of movie posters */
-#indexPage .section0 .card {
-    background-color: var(--pine-panel) !important;
-    border: 1px solid var(--pine-accent) !important;
-    border-radius: 12px !important; 
-    transition: all 0.2s ease-in-out;
-    box-shadow: none !important;
-    height: 60px !important; 
-    overflow: visible !important;
-    position: relative !important;
-    display: flex !important;
-    align-items: center !important;
-    /* This ensures it scales with the grid just like the posters below */
-    width: 100% !important; 
-}
-
-/* Ensure the library grid doesn't force a weird width */
-#indexPage .section0 .padded-left.padded-right.padded-top.padded-bottom {
-    padding: 0 3.3% !important; /* Matches standard Jellyfin poster row padding */
-}
-
-/* Center the text within the button */
-#indexPage .section0 .cardBox {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    height: 100% !important;
-    margin: 0 !important;
-    padding: 0 12px !important;
-    width: 100% !important;
-}
-
-/* Button Text Styling */
-#indexPage .section0 .cardText {
-    padding: 0 !important;
-    margin: 0 !important;
-    text-align: center !important;
-    font-size: 1.1em !important; 
-    font-weight: 700 !important;
-    letter-spacing: 0.5px;
-    color: var(--pine-light) !important;
-    white-space: nowrap !important;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* Position three-dot menu on the right */
-#indexPage .section0 .cardItemMenuButton {
-    position: absolute !important;
-    right: 4px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-}
-
-/* Button Hover State */
-#indexPage .section0 .card:hover {
-    background-color: var(--pine-accent) !important;
-    transform: translateY(-2px);
-}
-
-#indexPage .section0 .card:hover .cardText {
+.navMenuOption-selected {
+    background: var(--pine-accent) !important;
     color: white !important;
 }
 
-/* Spacing at the top of the home screen */
-#indexPage .section0 {
-    margin-top: 2em !important;
-    margin-bottom: 2em !important;
+/* --- Top Bar (Tabs) Polish --- */
+
+/* Styling the Home/Favorites/Collections tabs at the top */
+.emby-tab-button {
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.emby-tab-button-active {
+    border-bottom: 2px solid var(--pine-accent) !important;
 }
