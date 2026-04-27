@@ -78,6 +78,19 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     height: 0 !important;
 }
 
+/* Additional fallback rules for three-dot menu */
+#indexPage .section0 .cardItemMenuButton *,
+#indexPage .section0 .cardButtons * {
+    display: none !important;
+}
+
+/* Hide any button overlays */
+#indexPage .section0 .card .itemAction,
+#indexPage .section0 .card .cardOverlayButton,
+#indexPage .section0 .card [class*="menu"] {
+    display: none !important;
+}
+
 /* Transform Library Cards into Centered Buttons aligned with grid */
 #indexPage .section0 .card {
     /* Matches width to posters in the grid */
