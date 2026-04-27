@@ -1,0 +1,108 @@
+/* JELLYFIN THEME: DEEP PINE FOREST (GRID ALIGNED)
+   Style: Dark, Calm, and Streamlined
+*/
+
+:root {
+    /* Color Palette */
+    --pine-dark: #0a120b;      /* Main Background */
+    --pine-panel: #141e15;     /* Headers/Panels */
+    --pine-accent: #2d5a27;    /* Buttons/Highlights */
+    --pine-light: #a3b8a1;     /* Text/Subtitles/Active State */
+    --text-main: #e0e0e0;      /* Primary Text */
+}
+
+/* --- Core Layout & Colors --- */
+
+.backgroundContainer, .backdropContainer, .backgroundApp {
+    background-color: var(--pine-dark) !important;
+}
+
+.skinHeader-withBackground, .navMenu, .itemSelectionPanel {
+    background-color: var(--pine-panel) !important;
+}
+
+.emby-button-primary, 
+.itemProgressBarForeground, 
+.mdl-slider-background-lower {
+    background-color: var(--pine-accent) !important;
+    color: white !important;
+}
+
+body, h1, h2, h3, h4, .primaryText, .cardText {
+    color: var(--text-main) !important;
+}
+
+.secondaryText {
+    color: var(--pine-light) !important;
+    opacity: 0.8;
+}
+
+.button-link, .navMenuButton-selected, .emby-tab-button-active {
+    color: var(--pine-light) !important;
+}
+
+.cardBox:hover, .listItem:hover {
+    background: rgba(45, 90, 39, 0.2) !important;
+}
+
+.cardContent, .cardImage, .cardImageContainer {
+    border-radius: 8px !important;
+}
+
+/* --- Aligned Button-Style "My Media" Section --- */
+
+/* Hide the "My Media" Title */
+#indexPage .section0 .sectionTitle {
+    display: none !important;
+}
+
+/* Hide library images */
+#indexPage .section0 .cardImageContainer, 
+#indexPage .section0 .cardPadder {
+    display: none !important;
+}
+
+/* Transform Library Cards into Centered Buttons aligned with grid */
+#indexPage .section0 .card {
+    background-color: var(--pine-panel) !important;
+    border: 1px solid var(--pine-accent) !important;
+    border-radius: 12px !important; 
+    transition: all 0.2s ease-in-out;
+    box-shadow: none !important;
+    height: 50px !important; /* Set a fixed height for the thin bar look */
+}
+
+/* Center the text vertically and horizontally */
+#indexPage .section0 .cardBox {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+    margin: 0 !important;
+}
+
+/* Remove default padding/margin from text to ensure perfect centering */
+#indexPage .section0 .cardText {
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: center !important;
+    font-size: 1em !important;
+    font-weight: 600;
+    color: var(--pine-light) !important;
+}
+
+/* Button Hover State */
+#indexPage .section0 .card:hover {
+    background-color: var(--pine-accent) !important;
+    transform: translateY(-2px);
+}
+
+#indexPage .section0 .card:hover .cardText {
+    color: white !important;
+}
+
+/* Spacing at the top of the home screen */
+#indexPage .section0 {
+    margin-top: 2em !important;
+    margin-bottom: 2em !important;
+}
