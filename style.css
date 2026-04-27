@@ -62,9 +62,10 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     display: none !important;
 }
 
-/* Hide library images */
+/* Hide library images and the three-dot menu */
 #indexPage .section0 .cardImageContainer, 
-#indexPage .section0 .cardPadder {
+#indexPage .section0 .cardPadder,
+#indexPage .section0 .cardItemMenuButton {
     display: none !important;
 }
 
@@ -80,7 +81,7 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     border-radius: 12px !important; 
     transition: all 0.2s ease-in-out;
     box-shadow: none !important;
-    height: 55px !important; /* Height adjusted for larger text */
+    height: 55px !important; 
     margin-right: 12px !important;
 }
 
@@ -99,7 +100,7 @@ body, h1, h2, h3, h4, .primaryText, .cardText {
     padding: 0 !important;
     margin: 0 !important;
     text-align: center !important;
-    font-size: 1.4em !important; /* Larger title size */
+    font-size: 1.4em !important; 
     font-weight: 700 !important;
     letter-spacing: 0.5px;
     color: var(--pine-light) !important;
