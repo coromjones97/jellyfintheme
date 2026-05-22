@@ -1,146 +1,77 @@
-/* JELLYFIN THEME: DEEP PINE FOREST
-   Style: Dark, Calm, and Streamlined
-   Server-Wide Implementation
-*/
-
+/* Core Palette - Brass Removed */
 :root {
-    /* Color Palette */
-    --pine-dark: #0a120b;      /* Main Background */
-    --pine-panel: #141e15;     /* Headers/Panels */
-    --pine-accent: #2d5a27;    /* Buttons/Highlights */
-    --pine-light: #a3b8a1;     /* Text/Subtitles/Active State */
-    --text-main: #e0e0e0;      /* Primary Text */
+  --theme-primary-color: #d32f2f; /* Revolutionary Red */
+  --theme-text-color: #f4ecd8; /* Parchment White */
+  --theme-background: #1b2a41; /* Continental Navy */
+  --background-default: #1b2a41;
 }
 
-/* --- Core Layout & Colors --- */
-
-/* Main Backgrounds & Splash Screens */
-.backgroundContainer, 
-.backdropContainer, 
-.backgroundApp, 
-#loginPage {
-    background-color: var(--pine-dark) !important;
+/* Base Backgrounds */
+.background-theme-a, .background-theme-b, .html-background {
+  background-color: var(--theme-background) !important;
+  background-image: none !important;
 }
 
-/* Background Overlay for movie backdrops */
-.backgroundContainer.withBackdrop {
-    background-color: rgba(10, 18, 11, 0.85) !important;
-    backdrop-filter: blur(10px);
+/* Headers and Navigation */
+.skinHeader, .mainDrawer {
+  background-color: #121d2b !important;
 }
 
-/* Header, Sidebar, and Panels */
-.skinHeader-withBackground, 
-.navMenu, 
-.itemSelectionPanel, 
-.visualCardBox {
-    background-color: var(--pine-panel) !important;
+/* Buttons */
+.emby-button:focus, .emby-button:hover {
+  background-color: var(--theme-primary-color) !important;
+  color: #fff !important;
 }
 
-/* Primary Buttons and Progress Bars */
-.emby-button-primary, 
-.itemProgressBarForeground, 
-.mdl-slider-background-lower {
-    background-color: var(--pine-accent) !important;
-    color: white !important;
+/* =======================================
+   Movie Details View (Emphasize Poster)
+   ======================================= */
+
+/* Aggressively blur and darken the backdrop so it acts as texture */
+.backdropImage {
+  filter: blur(12px) brightness(20%) !important;
 }
 
-/* Global Text Colors */
-body, h1, h2, h3, h4, .primaryText, .cardText {
-    color: var(--text-main) !important;
+/* Enlarge the poster, add a crisp border and deep shadow to make it pop */
+.detailImageContainer .cardImage {
+  max-width: 25vw !important; /* Scales with screen size */
+  min-width: 250px;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.9) !important;
+  border: 2px solid var(--theme-text-color) !important;
+  border-radius: 6px;
 }
 
-.secondaryText {
-    color: var(--pine-light) !important;
-    opacity: 0.8;
+/* Ensure the layout gives the enlarged poster enough breathing room */
+.detailPageWrapperContainer {
+  margin-top: 4em;
 }
 
-/* Navigation & Interaction */
-.button-link, 
-.navMenuButton-selected, 
-.emby-tab-button-active {
-    color: var(--pine-light) !important;
+/* =======================================
+   Media Info Badges (Text to Logos)
+   ======================================= */
+
+/* Turn standard text info (like PG-13, 1080p, etc.) into solid "badges" */
+.mediaInfoItem {
+  background-color: transparent;
+  border: 1px solid var(--theme-text-color);
+  color: var(--theme-text-color);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.cardBox:hover, 
-.listItem:hover {
-    background: rgba(45, 90, 39, 0.2) !important;
-}
-
-/* Custom Focus Ring */
-:focus {
-    outline-color: var(--pine-accent) !important;
-}
-
-/* Rounded corners for posters */
-.cardContent, 
-.cardImage, 
-.cardImageContainer {
-    border-radius: 8px !important;
-}
-
-/* --- THE "TOP BAR" TRANSITION --- */
-
-/* 1. HIDE THE TILES (My Media section) */
-div[data-role="section"][class*="section0"], 
-#indexPage .section0,
-.viewItemsContainer > .section0,
-#indexPage .itemsContainer > .card[data-type="CollectionFolder"] {
-    display: none !important;
-}
-
-/* 2. STYLE THE TOP TABS */
-.headerTabs {
-    background-color: var(--pine-panel) !important;
-    padding-bottom: 5px;
-    border-bottom: 1px solid var(--pine-accent);
-}
-
-.emby-tab-button {
-    color: var(--text-main) !important;
-    font-weight: 600 !important;
-    padding: 1em 1.5em !important;
-    text-transform: uppercase;
-    font-size: 0.9em;
-}
-
-/* ACTIVE TAB */
-.emby-tab-button-active {
-    color: var(--pine-light) !important;
-    border-bottom: 3px solid var(--pine-accent) !important;
-}
-
-/* HOVER */
-.emby-tab-button:hover {
-    color: var(--pine-light) !important;
-    background: rgba(45, 90, 39, 0.15);
-}
-
-/* --- REMOVE ICONS FROM TOP TABS (Movies, TV, etc.) --- */
-.headerTabs .emby-tab-button i,
-.headerTabs .emby-tab-button .material-icons,
-.headerTabs .emby-tab-button .md-icon,
-.headerTabs .emby-tab-button:before {
-    display: none !important;
-}
-
-/* Optional extra safety */
-.headerTabs .emby-tab-button {
-    background-image: none !important;
-}
-
-/* --- SIDEBAR & LOGIN POLISH --- */
-
-.navMenu {
-    border-right: 1px solid var(--pine-accent) !important;
-}
-
-.navMenuOption-selected {
-    background: var(--pine-accent) !important;
-    color: white !important;
-}
-
-/* Login button styling */
-#loginPage .emby-button {
-    background-color: var(--pine-accent) !important;
-    border-radius: 8px;
+/* Replace specific text like '4K' with an external image logo */
+.mediaInfoItem[title="4K"] {
+  font-size: 0 !important; /* Hides the original '4K' text */
+  border: none !important; /* Removes the badge border for the logo */
+  width: 50px; 
+  height: 24px;
+  /* Public domain 4K SVG as an example */
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/4K_logo.svg/1024px-4K_logo.svg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
 }
