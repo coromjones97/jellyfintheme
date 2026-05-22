@@ -1,74 +1,94 @@
-/* Core Palette - Brass Removed */
-:root {
-  --theme-primary-color: #d32f2f; /* Revolutionary Red */
-  --theme-text-color: #f4ecd8; /* Parchment White */
-  --theme-background: #1b2a41; /* Continental Navy */
-  --background-default: #1b2a41;
-}
+/* ==========================================================================
+   1. HISTORICAL TYPOGRAPHY IMPORT
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Playfair+Display:ital,wght@0,600;0,900;1,600&display=swap');
 
-/* Base Backgrounds */
-.background-theme-a, .background-theme-b, .html-background {
-  background-color: var(--theme-background) !important;
+/* ==========================================================================
+   2. MOVIE/SHOW DETAILS VIEW ONLY
+   ========================================================================== */
+
+/* Scopes background color solely to the item detail screen context */
+.itemDetailPage, .detailPageWrapperContainer, .detailContainer {
+  background-color: #1b2a41 !important; /* Continental Navy */
   background-image: none !important;
+  color: #f4ecd8 !important; /* Parchment White */
 }
 
-/* Headers and Navigation */
-.skinHeader, .mainDrawer {
-  background-color: #121d2b !important;
+/* Aggressively blurs out the wide backdrop image to make it pure texture */
+.itemDetailPage .backdropImage {
+  filter: blur(20px) brightness(15%) contrast(110%) !important;
 }
 
-/* Buttons */
-.emby-button:focus, .emby-button:hover {
-  background-color: var(--theme-primary-color) !important;
-  color: #fff !important;
+/* Enlarge the main movie poster and anchor it with a heavy historical border */
+.itemDetailPage .detailImageContainer .cardImage {
+  max-width: 26vw !important;
+  min-width: 260px;
+  border: 3px double #f4ecd8 !important; /* Historic double-line trim */
+  box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.85) !important;
+  border-radius: 2px; /* Crisp corners typical of old paper blocks */
 }
 
-/* =======================================
-   Movie Details View (Emphasize Poster)
-   ======================================= */
+/* ==========================================================================
+   3. COLONIAL TYPOGRAPHY AND BADGES
+   ========================================================================== */
 
-/* Aggressively blur and darken the backdrop so it acts as texture */
-.backdropImage {
-  filter: blur(12px) brightness(20%) !important;
+/* Main Title Typography */
+.itemDetailPage .nameContainer h1, .itemDetailPage .parentNameContainer a {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.5px;
+  color: #f4ecd8 !important;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-/* Enlarge the poster, add a crisp border and deep shadow to make it pop */
-.detailImageContainer .cardImage {
-  max-width: 25vw !important; /* Scales with screen size */
-  min-width: 250px;
-  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.9) !important;
-  border: 2px solid var(--theme-text-color) !important;
-  border-radius: 6px;
+/* Taglines, Overview Paragraphs, and Plot Metadata */
+.itemDetailPage .tagline, 
+.itemDetailPage .overview, 
+.itemDetailPage .itemDetailText,
+.itemDetailPage .textActionButton {
+  font-family: 'IM Fell English', Georgia, serif !important;
+  font-size: 1.15em !important;
+  line-height: 1.6 !important;
+  color: #f4ecd8 !important;
 }
 
-/* Ensure the layout gives the enlarged poster enough breathing room */
-.detailPageWrapperContainer {
-  margin-top: 4em;
+/* Primary Action Buttons (Play, Trailer) to Revolutionary Red */
+.itemDetailPage .btnPlay, 
+.itemDetailPage .btnTrailer,
+.itemDetailPage .button-submit {
+  background-color: #d32f2f !important; /* Revolutionary Red */
+  color: #f4ecd8 !important;
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 600;
+  border-radius: 3px;
+  border: 1px solid rgba(244, 236, 216, 0.2);
+  transition: all 0.2s ease-in-out;
 }
 
-/* =======================================
-   Media Info Badges (Text to Logos)
-   ======================================= */
-
-/* Turn standard text info (like PG-13, 1080p, etc.) into solid "badges" */
-.mediaInfoItem {
-  background-color: transparent;
-  border: 1px solid var(--theme-text-color);
-  color: var(--theme-text-color);
-  border-radius: 4px;
-  padding: 4px 8px;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+/* Button Hover State */
+.itemDetailPage .btnPlay:hover, 
+.itemDetailPage .btnTrailer:hover {
+  filter: brightness(120%);
+  box-shadow: 0 0 10px rgba(211, 47, 47, 0.5);
 }
 
-/* Replace specific text like '4K' with an external image logo */
-.mediaInfoItem[title="4K"] {
-  font-size: 0 !important; /* Hides the original '4K' text */
-  border: none !important; /* Removes the badge border for the logo */
+/* Technical text badges (4K, 1080p, etc.) turned into clean parchment frames */
+.itemDetailPage .mediaInfoItem {
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 600;
+  border: 1px solid rgba(244, 236, 216, 0.4) !important;
+  color: #f4ecd8 !important;
+  background-color: rgba(244, 236, 216, 0.05) !important;
+  border-radius: 2px;
+}
+
+/* Graphical Logo Hook for 4K text metadata badge */
+.itemDetailPage .mediaInfoItem[title="4K"] {
+  font-size: 0 !important;
+  border: none !important;
+  background-color: transparent !important;
   width: 50px; 
   height: 24px;
-  /* Public domain 4K SVG as an example */
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/4K_logo.svg/1024px-4K_logo.svg.png');
   background-size: contain;
   background-repeat: no-repeat;
